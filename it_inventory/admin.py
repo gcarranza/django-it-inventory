@@ -11,3 +11,7 @@ class ComputerAdmin(admin.ModelAdmin):
                     'oscaption','osversion','pmanufacturer','pname','xclientaddress']
     list_filter = ['oscaption','osversion', 'csmodel']
 admin.site.register(Computer, ComputerAdmin)
+
+class PrinterAdmin(admin.ModelAdmin):
+    list_display = ('name', 'asset_tag', 'state', 'state_reason')
+admin.site.register(Printer, PrinterAdmin)

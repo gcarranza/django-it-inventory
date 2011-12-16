@@ -4,10 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # url(r'^$', 'django_it_inventory.views.home', name='home'),
-    # url(r'^django_it_inventory/', include('django_it_inventory.foo.urls')),
     url(r'^admin/', include(admin.site.urls)),
     (r'^admin_export/', include("admin_export.urls")),
+    (r'^inventory/', include('django-it-inventory.it_inventory.urls'))
 )
-
-urlpatterns += patterns('', (r'^inventory/', include('django_it_inventory.it_inventory.urls')), )

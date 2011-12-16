@@ -13,7 +13,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-PROJECT_NAME = 'django_it_inventory'
+PROJECT_NAME = 'django-it-inventory'
 
 DATABASES = {
     'default': {
@@ -78,7 +78,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/home/david/Dropbox/Projects/django_it_inventory/static_files',
+    '/home/david/Dropbox/Projects/django-it-inventory/static_files',
 )
 
 # List of finder classes that know how to find static files in
@@ -107,10 +107,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'django_it_inventory.urls'
+ROOT_URLCONF = 'django-it-inventory.urls'
 
 TEMPLATE_DIRS = (
-   '/home/david/Dropbox/Projects/django_it_inventory/templates/',
+   '/home/david/Dropbox/Projects/django-it-inventory/templates/',
 )
 
 INSTALLED_APPS = (
@@ -122,7 +122,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     # 'django.contrib.admindocs',
-    'django_it_inventory.it_inventory',
+    'django-it-inventory.it_inventory',
     'admin_export',
 )
 
