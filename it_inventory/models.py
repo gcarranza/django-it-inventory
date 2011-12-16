@@ -1,5 +1,6 @@
 from django.db import models
 import cups
+from django.conf import settings
 
 class Computer(models.Model):
     bserialnumber = models.CharField(max_length=255, db_column='bSerialNumber') 
@@ -19,7 +20,7 @@ class Computer(models.Model):
     pmanufacturer = models.CharField(max_length=768, db_column='pManufacturer', blank=True) 
     pname = models.CharField(max_length=768, db_column='pName', blank=True) 
     xclientaddress = models.CharField(max_length=120, db_column='xClientAddress', blank=True) 
-    xupdated = models.DateTimeField(db_column='xUpdated', blank=True, null=True) 
+    xupdated = models.DateTimeField(db_column='xUpdated', auto_now=True, blank=True, null=True) 
     battery = models.CharField(max_length=255, blank=True, help_text="Battery information, Linux only")
     class Meta:
         unique_together = (('bserialnumber','csmanufacturer'),)
@@ -31,7 +32,7 @@ class Printer(models.Model):
     model =  models.CharField(max_length=255, blank=True)
     asset_tag = models.CharField(max_length=255, blank=True)
     
-    cups.setServer('cups.cristoreyny.org')
+    cups.setServer(settings.CUPS_SERVER)
     c = cups.Connection()
     
     @property

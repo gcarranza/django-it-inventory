@@ -15,6 +15,8 @@ MANAGERS = ADMINS
 
 PROJECT_NAME = 'django-it-inventory'
 
+CUPS_SERVER = 'cups.cristoreyny.org'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
@@ -78,7 +80,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/home/david/Dropbox/Projects/django-it-inventory/static_files',
+    os.path.join(PROJECT_ROOT,'static_files'),
 )
 
 # List of finder classes that know how to find static files in
@@ -107,10 +109,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'django-it-inventory.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
-   '/home/david/Dropbox/Projects/django-it-inventory/templates/',
+   os.path.join(PROJECT_ROOT,'templates/'),
 )
 
 INSTALLED_APPS = (
@@ -122,7 +124,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     # 'django.contrib.admindocs',
-    'django-it-inventory.it_inventory',
+    'it_inventory',
     'admin_export',
 )
 
