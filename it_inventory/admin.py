@@ -3,15 +3,14 @@ from django.contrib import admin
 from it_inventory.models import *
 
 class ComputerAdmin(admin.ModelAdmin):
-    list_display = ['csmanufacturer', 'csusername', 'csname', 'csmodel',
-                    'cstotalphysicalmemory', 'dfreespace', 'oscaption','osversion','osservicepackmajorversion',
-                    'osinstalldate','pmanufacturer','pname','xclientaddress','xupdated']
-    list_filter = ['oscaption','osversion', 'csmodel']
-    search_fields = ['bserialnumber','csmanufacturer', 'csusername', 'csname', 'csmodel',
-                    'oscaption','osversion','pmanufacturer','pname','xclientaddress']
-    list_filter = ['oscaption','osversion', 'csmodel']
+    list_display = ['manufacturer', 'user', 'hostname', 'model',
+                    'memory', 'hd_freespace', 'os','os_version',
+                    'os_install_date','cpu_name','ip_address','last_updated']
+    list_filter = ['os','os_version', 'model']
+    search_fields = ['serial_number','manufacturer', 'user', 'hostname', 'model',
+                    'os','os_version','ip_address']
 admin.site.register(Computer, ComputerAdmin)
 
 class PrinterAdmin(admin.ModelAdmin):
-    list_display = ('name', 'asset_tag', 'state', 'state_reason')
+    list_display = ('name', 'state', 'state_reason', 'toner_levels',)
 admin.site.register(Printer, PrinterAdmin)
