@@ -33,7 +33,8 @@ class Printer(models.Model):
     uri = models.CharField(max_length=255, blank=True)
     model =  models.CharField(max_length=255, blank=True)
     asset_tag = models.CharField(max_length=255, blank=True)
-    toner_levels = models.CharField(max_length=1024, blank=True)
+    toner_levels = models.CharField(max_length=1024, blank=True) 
+    connection = models.CharField(max_length=1024,blank=True,null=True)
     
     cups.setServer(settings.CUPS_SERVER)
     c = cups.Connection()
@@ -47,6 +48,7 @@ class Printer(models.Model):
         self.location = all_data.get('printer-location', '')
         self.uri = all_data.get('printer-uri-supported', '')
         self.model = all_data.get('printer-make-and-model', '')
+        self.connection = all_data.get('device-uri','')
         marker_names = all_data.get('marker-names', '')
         marker_levels = all_data.get('marker-levels', '')
         if marker_names and marker_levels:
