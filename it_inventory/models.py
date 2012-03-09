@@ -57,7 +57,6 @@ class Printer(models.Model):
             #toner_high_level = all_data.get('toner_high_level', '')
             for name, level in zip(marker_names, marker_levels):
                 # A value of -1 indicates the level is unavailable, -2 indicates unknown, and -3 indicates the level is unknown but has not yet reached capacity
-                print level
                 if level != -1 and level != -2:
                     if level == -3:
                         level = "Not at capacity"
