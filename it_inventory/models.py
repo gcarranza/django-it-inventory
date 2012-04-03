@@ -24,6 +24,7 @@ class Computer(models.Model):
     battery_design = models.CharField(max_length=255, blank=True)
     battery_full = models.CharField(max_length=255, blank=True)
     mac_addr = models.TextField(blank=True)
+    asset_tag = models.CharField(max_length=768, blank=True,help_text="None unique id. Useful if you labeled the computers and need a place to store such.") 
     class Meta:
         unique_together = (('serial_number','manufacturer'),)
 
