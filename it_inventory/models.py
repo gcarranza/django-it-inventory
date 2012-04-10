@@ -71,8 +71,11 @@ class Printer(models.Model):
         try:
             state = self.c.getPrinterAttributes(name=self.name, requested_attributes=['printer-state'])['printer-state']
         except:
-            c = cups.Connection()
-            state = self.c.getPrinterAttributes(name=self.name, requested_attributes=['printer-state'])['printer-state']
+            try:
+                c = cups.Connection()
+                state = self.c.getPrinterAttributes(name=self.name, requested_attributes=['printer-state'])['printer-state']
+            except:
+                return "Can't connect"
         if state == 3:
             return "Idle"
         elif state == 4:
