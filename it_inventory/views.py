@@ -17,7 +17,6 @@ def get_post_or_none(post, key, return_blank=True, is_datetime=False):
             return ''
         return None
 
-@permission_required('inventory.change_computer')
 def capture_login(request):
     """
     A computer runs some get data to the server and this view collects it
