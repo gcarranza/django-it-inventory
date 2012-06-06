@@ -27,6 +27,11 @@ class Computer(models.Model):
     asset_tag = models.CharField(max_length=768, blank=True,help_text="None unique id. Useful if you labeled the computers and need a place to store such.") 
     class Meta:
         unique_together = (('serial_number','manufacturer'),)
+    @property
+    def hd_percent_free(self):
+        return int(100 * (float(self.hd_freespace) / float(self.hd_size)))
+    def hd_size_gb(self):
+        return int(float(self.hd_size) / 1073741824)
 
 class Printer(models.Model):
     name = models.CharField(max_length=255, unique=True)

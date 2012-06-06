@@ -8,3 +8,5 @@ urlpatterns = patterns('',
     (r'^admin_export/', include("admin_export.urls")),
     (r'^inventory/', include('it_inventory.urls'))
 )
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+urlpatterns += staticfiles_urlpatterns()
